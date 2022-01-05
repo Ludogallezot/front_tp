@@ -1,0 +1,46 @@
+
+https://codepen.io/
+
+
+######################################
+var x = 2;
+var y = 3;
+function MyAddition (a,b) {
+  return a+b;
+}
+function MyMultiply (a,b) {
+  return a * b;
+}
+console.log(MyAddition(x,y));
+console.log(MyMultiply(x,y));
+
+
+ #############################################
+var tableau = [5, 8, 9];
+var i = tableau.length;
+var resultat = 1;
+console.log(i)
+for(var i  ; i > 0; i--) {
+  resultat = resultat * tableau[i-1];
+  console.log(resultat);
+}
+
+console.log(i);
+console.log(tableau.length);
+
+###################################################
+
+function myNote (noteSurVingt) {
+    if (0 <= noteSurVingt && noteSurVingt < 7) { 
+    console.log("Vraiment pas terrible");
+    } else if (7 <=noteSurVingt && noteSurVingt < 10 ) { 
+    console.log("Pas terrible")
+    } else if (10 <=noteSurVingt && noteSurVingt < 15 ) { 
+    console.log("Boaf") 
+    } else if (15 <=noteSurVingt && noteSurVingt <= 20 ) { 
+    console.log("cool") 
+    } else { 
+    console.log(" BUG : Tu racontes n'importe quoi, on a dit une note entre 0 et 20 !!")
+    }  
+    }
+myNote(24);

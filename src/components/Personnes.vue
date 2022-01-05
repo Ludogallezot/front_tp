@@ -1,31 +1,52 @@
 <template>
 
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"
-    :class="{ active: id == currentIndex }"
-    v-for="(personne, id) in personnes"
-    :key="id"
-    @click="setActivePersonne(personne, id)"
-    >
-    {{ personne.surname }} {{ personne.name }}
-  </li>
-</ul>
-
-<div v-if="currentPersonne">
-  {{ currentPersonne.name }}
-  {{ currentPersonne.surname }}
-  {{ currentPersonne.phone }}
-  {{ currentPersonne.city }}
-
-
-  <router-link :to="'/personnes/' + currentPersonne.id" class="badge badge-warning">Modifier</router-link>
+<div class="container">
+  <div class="row"> 
+    <div class="col-4">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-black"
+        :class="{ active: id == currentIndex }"
+        v-for="(personne, id) in personnes"
+        :key="id"
+        @click="setActivePersonne(personne, id)"
+        >
+        {{ personne.surname }} {{ personne.name }}
+      </li>
+    </ul> 
+  </div>
 
 
 
-</div>
-<div v-else>
-  <br />
-  <p>Cliquez sur une des personnes pour afficher les détails.</p>
+  <div class="col-5">
+    <div class="card">
+      <ul class="list-group list-group-flush">
+
+
+          <div v-if="currentPersonne">
+
+            <li class="list-group-item bg-secondary">{{ currentPersonne.name }}</li>
+            <li class="list-group-item bg-secondary">{{ currentPersonne.surname }}</li>
+            <li class="list-group-item bg-secondary">{{ currentPersonne.phone }}</li>
+            <li class="list-group-item bg-secondary">{{ currentPersonne.city }}</li>
+
+            <router-link :to="'/personnes/' + currentPersonne.id" class="badge badge-warning">Modifier</router-link>
+
+
+
+          </div>
+          <div v-else>
+            <br />
+            <p class="bg-secondary">Cliquez sur une des personnes pour afficher les détails.</p>
+          </div>
+          <!-- J'ai mis en bg-secondary pour qu'on voit le pavé à côté -->
+        </ul> 
+      </div>
+    </div>
+
+
+
+
+  </div>
 </div>
 
 </template>
@@ -47,7 +68,7 @@ export default {
       PersonneDataService.getAll()
       .then(response => {
         this.personnes = response.data;
-        //console.log(response.data);
+
       })
       .catch(e => {
         console.log(e);

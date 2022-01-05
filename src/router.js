@@ -17,6 +17,7 @@ const routes =  [
     name: "ajouterPersonne",
     component: () => import("./components/AddPersonne")
   }
+
 ];
 
 const router = createRouter({

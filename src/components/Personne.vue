@@ -1,33 +1,53 @@
 <template>
-  <!-- A COMPLETER ou plus de trop -->
+<div class="container">
+   <div class="row">
+    <div class="col-8">
 
   <div v-if="currentPersonne">
-    <label for="id" class="id">Identification unique</label>
-    <input type="text" class="id" id="id" v-model="currentPersonne.id" /><br/>
-    <label for="name" class="name">Nom patronymique</label>
-    <input type="text" class="name" id="name" v-model="currentPersonne.name" /><br/>
-    <label for="surname" class="surname">Prénom</label>
-    <input type="text" class="surname" id="surname" v-model="currentPersonne.surname" /><br/>
-    <label for="phone" class="phone">Téléphone</label>
-    <input type="text" class="phone" id="phone" v-model="currentPersonne.phone" /><br/>
-    <label for="city" class="city">Ville</label>
-    <input type="text" class="city" id="city" v-model="currentPersonne.city" />
+    
+<div class="mb-3 row">
+    <label for="id" class="col-sm-4 col-form-label">Identifiant</label>
+    <div class="col-sm-8">
+      <input type="text" class="id form-control" id="id" v-model="currentPersonne.id" readonly/>
+    </div>
+  </div>
+<div class="mb-3 row">
+    <label for="name" class="col-sm-4 col-form-label">Nom patronymique</label>
+    <div class="col-sm-8">
+      <input type="text" class="name form-control" id="name" v-model="currentPersonne.name"/>
+    </div>
+  </div>
+<div class="mb-3 row">
+    <label for="surname" class="col-sm-4 col-form-label">Prénom</label>
+    <div class="col-sm-8">
+      <input type="text" class="surname form-control" id="surname" v-model="currentPersonne.surname"/>
+    </div>
+  </div>
+<div class="mb-3 row">
+    <label for="phone" class="col-sm-4 col-form-label">Téléphone</label>
+    <div class="col-sm-8">
+      <input type="text" class="phone form-control" id="phone" v-model="currentPersonne.phone"/>
+    </div>
+  </div>
+<div class="mb-3 row">
+    <label for="city" class="col-sm-4 col-form-label">Ville</label>
+    <div class="col-sm-8">
+      <input type="text" class="city form-control" id="city" v-model="currentPersonne.city"/>
+    </div>
+  </div>
 
-    <button type="submit" class="badge badge-success" @click="updatePersonne">Modifier</button>
-    <p>{{ message }}</p>
   </div>
   <div v-else>
     <br />
-    <p>j'ai pas de currentPersonne</p>
+    <p>Il n'y a pas de Personne selectionnée</p>
   </div>
+</div>
+</div>
+</div>
 
-
-  <!-- A INCLURE DANS LE FORM -->
-  <button class="badge badge-danger mr-2"
-  @click="deletePersonne"
-  >
-  Supprimer
-</button>
+      <button type="submit" class="badge badge-success" @click="updatePersonne">Modifier</button>
+    <p>{{ message }}</p>
+  <button class="badge badge-danger mr-2" @click="deletePersonne">Supprimer</button>
 
 
 </template>
